@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signs & More — Professional Signage Solutions</title>
+  <meta name="description" content="From storefront channel letters to vehicle wraps, Signs & More designs, fabricates, and installs signage that gets you noticed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* === TOKENS === */
+    :root {
+      --bg:            #F4F5F7;
+      --bg-surface:    #FFFFFF;
+      --bg-elevated:   #E8EBF0;
+      --text-primary:  #0F1623;
+      --text-secondary:#4A5568;
+      --text-tertiary: #8896A8;
+      --accent:        #F2C614;
+      --accent-hover:  #D4A900;
+      --accent-text:   #0F1623;
+      --hot:           #D94F00;
+      --border:        rgba(15,22,35,0.09);
+      --border-solid:  #D8DCE6;
+      --shadow:        0 2px 12px rgba(15,22,35,0.09);
+      --shadow-md:     0 6px 28px rgba(15,22,35,0.13);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:            #090D15;
+        --bg-surface:    #111826;
+        --bg-elevated:   #18212F;
+        --text-primary:  #EEF0F5;
+        --text-secondary:#8FA3C0;
+        --text-tertiary: #546880;
+        --accent:        #F2C614;
+        --accent-hover:  #FFD633;
+        --accent-text:   #0F1623;
+        --hot:           #FF6A2E;
+        --border:        rgba(238,240,245,0.07);
+        --border-solid:  #1F2D42;
+        --shadow:        0 2px 12px rgba(0,0,0,0.3);
+        --shadow-md:     0 6px 28px rgba(0,0,0,0.45);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg:            #090D15;
+      --bg-surface:    #111826;
+      --bg-elevated:   #18212F;
+      --text-primary:  #EEF0F5;
+      --text-secondary:#8FA3C0;
+      --text-tertiary: #546880;
+      --accent:        #F2C614;
+      --accent-hover:  #FFD633;
+      --accent-text:   #0F1623;
+      --hot:           #FF6A2E;
+      --border:        rgba(238,240,245,0.07);
+      --border-solid:  #1F2D42;
+      --shadow:        0 2px 12px rgba(0,0,0,0.3);
+      --shadow-md:     0 6px 28px rgba(0,0,0,0.45);
+    }
+    :root[data-theme="light"] {
+      --bg:            #F4F5F7;
+      --bg-surface:    #FFFFFF;
+      --bg-elevated:   #E8EBF0;
+      --text-primary:  #0F1623;
+      --text-secondary:#4A5568;
+      --text-tertiary: #8896A8;
+      --accent:        #F2C614;
+      --accent-hover:  #D4A900;
+      --accent-text:   #0F1623;
+      --hot:           #D94F00;
+      --border:        rgba(15,22,35,0.09);
+      --border-solid:  #D8DCE6;
+      --shadow:        0 2px 12px rgba(15,22,35,0.09);
+      --shadow-md:     0 6px 28px rgba(15,22,35,0.13);
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    body {
+      font-family: 'Barlow', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+    ul { list-style: none; }
+
+    /* === LAYOUT === */
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.71rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hot);
+      margin-bottom: 14px;
+    }
+
+    .section-header { margin-bottom: 52px; }
+    .section-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    .section-header p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 55ch;
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 0.91rem;
+      border-radius: 4px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+    }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .btn-primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-outline { background: transparent; color: var(--text-primary); border-color: var(--border-solid); }
+    .btn-outline:hover { background: var(--bg-elevated); border-color: var(--text-tertiary); }
+
+    /* === NAV === */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      height: 64px;
+      gap: 40px;
+    }
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      letter-spacing: 0.01em;
+    }
+    .logo-box {
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 3px 10px 4px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .logo-rest {
+      padding: 3px 0 4px 9px;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex: 1;
+    }
+    .nav-links a {
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+    .theme-btn {
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-tertiary);
+      transition: background 0.15s, color 0.15s;
+    }
+    .theme-btn:hover { background: var(--bg-elevated); color: var(--text-primary); }
+    .theme-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .hamburger {
+      display: none;
+      width: 36px; height: 36px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      padding: 7px;
+      border-radius: 4px;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 1px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .mobile-menu {
+      display: none;
+      padding: 8px 24px 20px;
+      border-top: 1px solid var(--border);
+      flex-direction: column;
+      gap: 2px;
+      background: var(--bg-surface);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 11px 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* === HERO === */
+    .hero { padding: 80px 0 96px; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-headline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3.2rem, 7vw, 5.8rem);
+      line-height: 0.93;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+    /* Aesthetic risk: offset shadow mimics dimensional channel-letter fabrication */
+    .hero-headline .accent-word {
+      color: var(--accent);
+      text-shadow: 4px 4px 0 var(--hot), 8px 8px 0 rgba(217, 79, 0, 0.18);
+      display: inline-block;
+    }
+    .hero-sub {
+      font-size: 1.04rem;
+      color: var(--text-secondary);
+      line-height: 1.68;
+      max-width: 50ch;
+      margin-top: 22px;
+    }
+    .hero-ctas { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+    /* Sign preview mockups */
+    .hero-visual { display: flex; flex-direction: column; gap: 12px; }
+    .sign-card {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .sign-tag {
+      position: absolute;
+      top: 10px; right: 10px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.35);
+      color: rgba(255,255,255,0.85);
+      padding: 3px 8px;
+      border-radius: 3px;
+      backdrop-filter: blur(4px);
+    }
+    .sign-channel {
+      background: #141423;
+      padding: 26px 28px 22px;
+    }
+    .channel-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: #F2C614;
+      text-shadow: 0 0 18px rgba(242,198,20,0.9), 0 0 50px rgba(242,198,20,0.35);
+      letter-spacing: 0.08em;
+    }
+    .channel-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.32);
+      margin-top: 5px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+    .sign-banner {
+      background: var(--hot);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .banner-main {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .banner-badge {
+      background: #fff;
+      color: var(--hot);
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sign-vehicle {
+      background: linear-gradient(120deg, #141423 35%, #B34000 100%);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .vehicle-mark {
+      width: 46px; height: 46px;
+      background: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #0F1623;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+    .vehicle-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: 0.06em;
+    }
+    .vehicle-tagline {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 3px;
+      letter-spacing: 0.04em;
+    }
+
+    /* === STATS BAR === */
+    .stats-bar {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-num em { font-style: normal; color: var(--accent); }
+    .stat-desc {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* === SERVICES === */
+    .services { padding: 96px 0; background: var(--bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--border-solid);
+      border: 1px solid var(--border-solid);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--bg-surface);
+      padding: 28px 28px 24px;
+      transition: background 0.15s;
+    }
+    .service-card:hover { background: var(--bg-elevated); }
+    .svc-icon {
+      width: 44px; height: 44px;
+      background: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .svc-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--accent-text);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .service-types {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .stype {
+      font-size: 0.66rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: var(--bg-elevated);
+      color: var(--text-tertiary);
+    }
+
+    /* === PROCESS === */
+    .process { padding: 96px 0; background: var(--bg-surface); }
+    .process-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+      position: relative;
+    }
+    .process-track::before {
+      content: '';
+      position: absolute;
+      top: 25px;
+      left: calc(12.5% + 25px);
+      right: calc(12.5% + 25px);
+      height: 2px;
+      background: var(--border-solid);
+      pointer-events: none;
+    }
+    .process-step { position: relative; z-index: 1; text-align: center; }
+    .step-dot {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      background: var(--bg-elevated);
+      border: 2px solid var(--border-solid);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--text-tertiary);
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .process-step:hover .step-dot {
+      background: var(--accent);
+      color: var(--accent-text);
+      border-color: var(--accent);
+    }
+    .process-step h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .process-step p { font-size: 0.83rem; color: var(--text-secondary); margin: 0; }
+
+    /* === WHY US === */
+    .why { padding: 96px 0; background: var(--bg); }
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 72px;
+      align-items: start;
+    }
+    .why-copy h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .why-copy > p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 50ch;
+      margin-bottom: 40px;
+    }
+    .differentiators { display: flex; flex-direction: column; gap: 28px; }
+    .diff-item { display: flex; gap: 18px; }
+    .diff-stripe {
+      width: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+      min-height: 44px;
+    }
+    .diff-item h4 {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .diff-item p { font-size: 0.84rem; color: var(--text-secondary); }
+    .cap-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-solid);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .cap-header {
+      background: #0F1623;
+      padding: 18px 22px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .cap-list { padding: 4px 0; }
+    .cap-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+    .cap-row:last-child { border-bottom: none; }
+    .cap-row:hover { background: var(--bg-elevated); }
+    .cap-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+    .cap-name { font-size: 0.87rem; font-weight: 500; flex: 1; }
+    .cap-check { font-size: 0.82rem; color: var(--accent); font-weight: 700; }
+
+    /* === TESTIMONIALS === */
+    .testimonials { padding: 96px 0; background: var(--bg-surface); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .tcard {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-solid);
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .tcard-stars { color: var(--accent); font-size: 0.88rem; letter-spacing: 3px; margin-bottom: 14px; }
+    .tcard-quote {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      line-height: 1.72;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .tcard-author strong { font-weight: 600; font-size: 0.9rem; display: block; }
+    .tcard-author span { font-size: 0.77rem; color: var(--text-tertiary); display: block; margin-top: 2px; }
+
+    /* === QUOTE / CONTACT === */
+    .quote-section { background: #0F1623; padding: 96px 0; }
+    .quote-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 72px;
+      align-items: start;
+    }
+    .quote-copy h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900;
+      color: #EEF0F5;
+      margin-bottom: 16px;
+      line-height: 1.0;
+    }
+    .quote-copy h2 span { color: var(--accent); }
+    .quote-copy > p {
+      font-size: 1rem;
+      color: rgba(238,240,245,0.6);
+      max-width: 48ch;
+      line-height: 1.7;
+    }
+    .quote-bullets { margin-top: 32px; display: flex; flex-direction: column; gap: 13px; }
+    .qb-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: rgba(238,240,245,0.75); }
+    .qb-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+    /* Form */
+    .quote-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 10px;
+      padding: 32px;
+    }
+    .form-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #EEF0F5;
+      margin-bottom: 24px;
+      letter-spacing: 0.03em;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: rgba(238,240,245,0.55);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 4px;
+      padding: 10px 13px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      color: #EEF0F5;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(238,240,245,0.35)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 14px;
+      padding-right: 36px;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(238,240,245,0.28); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.09);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit {
+      width: 100%;
+      padding: 13px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.15s, transform 0.12s;
+    }
+    .form-submit:hover { background: #D4A900; transform: translateY(-1px); }
+    .form-submit:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+    /* === FOOTER === */
+    footer {
+      background: #07090F;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 56px 0 36px;
+      color: rgba(238,240,245,0.6);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      max-width: 30ch;
+      color: rgba(238,240,245,0.42);
+      margin-top: 16px;
+    }
+    .footer-col h5 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.38);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 0.87rem;
+      color: rgba(238,240,245,0.6);
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: #EEF0F5; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: rgba(238,240,245,0.28);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .process-track { grid-template-columns: repeat(2, 1fr); }
+      .process-track::before { display: none; }
+      .why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .quote-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 56px 0 72px; }
+      section, .services, .process, .why, .testimonials, .quote-section { padding: 64px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-track { grid-template-columns: 1fr; gap: 24px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="logo" aria-label="Signs &amp; More home">
+          <span class="logo-box">SIGNS</span>
+          <span class="logo-rest">&amp; MORE</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-btn" id="themeToggle" aria-label="Toggle colour theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#why">Why Us</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact &amp; Quote</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">Professional Signage Solutions</span>
+          <h1 class="hero-headline">
+            MAKE YOUR<br>
+            BUSINESS<br>
+            <span class="accent-word">IMPOSSIBLE</span><br>
+            TO IGNORE
+          </h1>
+          <p class="hero-sub">From illuminated channel letters to full vehicle wraps, we design, fabricate, and install signage that builds your brand and drives foot traffic — all under one roof.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="sign-card sign-channel">
+            <span class="sign-tag">Channel Letters</span>
+            <div class="channel-text">OPEN</div>
+            <div class="channel-sub">Illuminated · 24 / 7</div>
+          </div>
+          <div class="sign-card sign-banner">
+            <span class="sign-tag">Vinyl Banner</span>
+            <div class="banner-main">GRAND OPENING</div>
+            <div class="banner-badge">SAT JUL 19</div>
+          </div>
+          <div class="sign-card sign-vehicle">
+            <span class="sign-tag">Vehicle Wrap</span>
+            <div class="vehicle-mark">SGN</div>
+            <div>
+              <div class="vehicle-name">SIGNS &amp; MORE CO.</div>
+              <div class="vehicle-tagline">Your brand. On the move.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-row">
+        <div><div class="stat-num">20<em>+</em></div><div class="stat-desc">Years in Business</div></div>
+        <div><div class="stat-num">5<em>k+</em></div><div class="stat-desc">Signs Installed</div></div>
+        <div><div class="stat-num">98<em>%</em></div><div class="stat-desc">Client Satisfaction</div></div>
+        <div><div class="stat-num">3<em>-day</em></div><div class="stat-desc">Avg. Turnaround</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">What We Make</span>
+        <h2>Every Sign Your Business Needs</h2>
+        <p>From a single yard sign to a complete building identity system — design, production, and installation under one roof.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Building &amp; Storefront Signs</h3>
+          <p>Make your location unmissable. Custom fabricated exterior signage — lit or unlit — for any building type or zoning requirement.</p>
+          <div class="service-types">
+            <span class="stype">Channel Letters</span>
+            <span class="stype">Cabinet Signs</span>
+            <span class="stype">Pylon Signs</span>
+            <span class="stype">Monument Signs</span>
+            <span class="stype">Blade Signs</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3>Vehicle Graphics &amp; Wraps</h3>
+          <p>Turn every mile into a marketing impression. High-performance vinyl wraps and partial graphics that protect paint and grow your brand.</p>
+          <div class="service-types">
+            <span class="stype">Full Wraps</span>
+            <span class="stype">Partial Wraps</span>
+            <span class="stype">Lettering</span>
+            <span class="stype">Fleet Branding</span>
+            <span class="stype">Magnets</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3>Banners &amp; Flags</h3>
+          <p>Fast-turn printed banners and feather flags for grand openings, promotions, trade shows, and seasonal events — indoors and out.</p>
+          <div class="service-types">
+            <span class="stype">Vinyl Banners</span>
+            <span class="stype">Mesh Banners</span>
+            <span class="stype">Feather Flags</span>
+            <span class="stype">Retractable</span>
+            <span class="stype">Street Banners</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          </div>
+          <h3>Window &amp; Wall Graphics</h3>
+          <p>Transform glass and wall surfaces into bold brand statements — perforated for one-way vision, frosted for privacy, or full-colour impact.</p>
+          <div class="service-types">
+            <span class="stype">Perforated Vinyl</span>
+            <span class="stype">Frosted Glass</span>
+            <span class="stype">Wall Murals</span>
+            <span class="stype">Floor Graphics</span>
+            <span class="stype">Window Lettering</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Digital Signs &amp; LED Displays</h3>
+          <p>Update your message in real time with programmable LED and digital signage systems — ideal for menus, announcements, and promotions.</p>
+          <div class="service-types">
+            <span class="stype">LED Message Centers</span>
+            <span class="stype">Digital Menu Boards</span>
+            <span class="stype">Indoor Screens</span>
+            <span class="stype">Lightboxes</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Interior Signs &amp; Wayfinding</h3>
+          <p>Help visitors navigate with confidence. ADA-compliant plaques, directional systems, lobby signs, and dimensional letters for any space.</p>
+          <div class="service-types">
+            <span class="stype">ADA Signs</span>
+            <span class="stype">Wayfinding</span>
+            <span class="stype">Lobby Signs</span>
+            <span class="stype">Office Plaques</span>
+            <span class="stype">Dimensional Letters</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Trade Show &amp; Event Displays</h3>
+          <p>Command attention on the show floor with pop-up displays, tension fabric backdrops, tabletop graphics, and complete exhibit packages.</p>
+          <div class="service-types">
+            <span class="stype">Pop-Up Displays</span>
+            <span class="stype">Backdrops</span>
+            <span class="stype">Table Throws</span>
+            <span class="stype">Banner Stands</span>
+            <span class="stype">Foam Boards</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Construction &amp; Real Estate Signs</h3>
+          <p>From job site identification to "For Sale" riders, we produce durable exterior signs that withstand weather and communicate project status.</p>
+          <div class="service-types">
+            <span class="stype">Yard Signs</span>
+            <span class="stype">Site Boards</span>
+            <span class="stype">RE Riders</span>
+            <span class="stype">Hoarding Graphics</span>
+            <span class="stype">A-Frames</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20"/><path d="M6 20V10l6-6 6 6v10"/></svg>
+          </div>
+          <h3>Awnings &amp; Canopies</h3>
+          <p>Architectural fabric and aluminium awnings that add curb appeal, shade customers, and reinforce your brand around the clock.</p>
+          <div class="service-types">
+            <span class="stype">Fixed Frame</span>
+            <span class="stype">Retractable</span>
+            <span class="stype">Dome Awnings</span>
+            <span class="stype">Canopy Signage</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3>Safety &amp; Regulatory Signs</h3>
+          <p>Keep your workplace compliant and your people safe. OSHA-compliant safety signs, fire exit markers, and custom regulatory plaques.</p>
+          <div class="service-types">
+            <span class="stype">OSHA Signs</span>
+            <span class="stype">Fire Exit</span>
+            <span class="stype">Parking Signs</span>
+            <span class="stype">Restroom Signs</span>
+            <span class="stype">No Trespassing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">How It Works</span>
+        <h2>Concept to Installation in Four Steps</h2>
+        <p>Our streamlined process keeps you informed at every stage — no surprises on timeline or budget.</p>
+      </div>
+      <div class="process-track">
+        <div class="process-step">
+          <div class="step-dot">1</div>
+          <h3>Consult</h3>
+          <p>Tell us about your project and goals. We'll walk you through options that fit your budget and local zoning codes.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">2</div>
+          <h3>Design</h3>
+          <p>Our in-house designers produce detailed mockups. Revisions are included — we don't stop until you're fully happy.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">3</div>
+          <h3>Fabricate</h3>
+          <p>Using state-of-the-art equipment in our own shop, we build your sign to spec — and on schedule.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-dot">4</div>
+          <h3>Install</h3>
+          <p>Our certified crew handles permits, hardware, and clean-up. You just unlock the door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-copy">
+          <span class="eyebrow">Why Signs &amp; More</span>
+          <h2>One Partner from Sketch to Installation</h2>
+          <p>Most sign shops outsource fabrication or design. We do everything in-house — which means better quality, faster turnaround, and one person to call when you need anything.</p>
+          <div class="differentiators">
+            <div class="diff-item">
+              <div class="diff-stripe"></div>
+              <div>
+                <h4>In-House Design Team</h4>
+                <p>Graphic designers who understand signage — not just aesthetics, but visibility, legibility, and the limits of each material and medium.</p>
+              </div>
+            </div>
+            <div class="diff-item">
+              <div class="diff-stripe"></div>
+              <div>
+                <h4>Permit &amp; Code Compliance</h4>
+                <p>We manage municipality permits and confirm every sign meets local zoning regulations, so you never face a compliance headache after installation.</p>
+              </div>
+            </div>
+            <div class="diff-item">
+              <div class="diff-stripe"></div>
+              <div>
+                <h4>Certified Installers</h4>
+                <p>Our licensed crew handles everything from rooftop channel letters to ground-mounted monument signs — safely, with proper rigging and liability coverage.</p>
+              </div>
+            </div>
+            <div class="diff-item">
+              <div class="diff-stripe"></div>
+              <div>
+                <h4>Rush Turnaround Available</h4>
+                <p>Grand opening next week? We offer rush production for most sign types without compromising on quality or cutting corners on materials.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cap-panel">
+          <div class="cap-header">Our Capabilities</div>
+          <div class="cap-list">
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">In-house digital printing</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">CNC routing &amp; fabrication</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">LED &amp; neon illumination</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">Vehicle wrap application</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">Permit acquisition</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">Structural engineering</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">After-hours installation</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">Sign surveys &amp; audits</span><span class="cap-check">✓</span></div>
+            <div class="cap-row"><div class="cap-dot"></div><span class="cap-name">Maintenance &amp; repair</span><span class="cap-check">✓</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Client Reviews</span>
+        <h2>Trusted by Local Businesses</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"The channel letters on our restaurant front have been running flawlessly for three years. The glow at night is exactly what we wanted — and foot traffic genuinely increased in the first month."</p>
+          <div class="tcard-author">
+            <strong>Maria T.</strong>
+            <span>Owner, Café Horizonte</span>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"We wrapped our entire fleet of 12 vans. They handled design revisions without complaint, finished two days early, and the quality is outstanding. Best marketing spend we've made in years."</p>
+          <div class="tcard-author">
+            <strong>Derek R.</strong>
+            <span>Operations Director, ClearPipe Plumbing</span>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-quote">"I needed trade show displays in 5 business days for a show across the country. They pulled it off. The booth looked incredible and we had more foot traffic than we've ever had at that event."</p>
+          <div class="tcard-author">
+            <strong>Jen L.</strong>
+            <span>Marketing Manager, Redwood Labs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / QUOTE -->
+  <section class="quote-section" id="contact">
+    <div class="container">
+      <div class="quote-inner">
+        <div class="quote-copy">
+          <span class="eyebrow" style="color: var(--accent);">Get Started</span>
+          <h2>Ready to <span>stand out?</span></h2>
+          <p>Tell us about your project and we'll reply within one business day with ideas, options, and a realistic timeline.</p>
+          <div class="quote-bullets">
+            <div class="qb-item"><div class="qb-dot"></div>Free design consultation</div>
+            <div class="qb-item"><div class="qb-dot"></div>No-obligation quote</div>
+            <div class="qb-item"><div class="qb-dot"></div>Local installation team</div>
+            <div class="qb-item"><div class="qb-dot"></div>Rush turnaround available</div>
+          </div>
+        </div>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div class="form-title">Request a Free Quote</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Jane" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" required autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="signtype">Sign Type</label>
+            <select id="signtype" name="signtype" required>
+              <option value="" disabled selected>Select a category…</option>
+              <option>Building / Storefront Signs</option>
+              <option>Vehicle Graphics &amp; Wraps</option>
+              <option>Banners &amp; Flags</option>
+              <option>Window &amp; Wall Graphics</option>
+              <option>Digital Signs &amp; LED Displays</option>
+              <option>Interior Signs &amp; Wayfinding</option>
+              <option>Trade Show &amp; Event Displays</option>
+              <option>Construction &amp; Real Estate Signs</option>
+              <option>Awnings &amp; Canopies</option>
+              <option>Safety &amp; Regulatory Signs</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Size, quantity, location, deadline…"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="formSubmit">Submit Request →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" aria-label="Signs &amp; More home">
+            <span class="logo-box">SIGNS</span>
+            <span class="logo-rest" style="color: rgba(238,240,245,0.75);">&amp; MORE</span>
+          </a>
+          <p>Full-service signage design, fabrication, and installation for businesses of every size. Proudly serving the region since 2004.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Storefront Signs</a></li>
+            <li><a href="#services">Vehicle Wraps</a></li>
+            <li><a href="#services">Banners &amp; Flags</a></li>
+            <li><a href="#services">Window Graphics</a></li>
+            <li><a href="#services">Digital Signs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>More Services</h5>
+          <ul>
+            <li><a href="#services">Wayfinding Signs</a></li>
+            <li><a href="#services">Trade Show Displays</a></li>
+            <li><a href="#services">Construction Signs</a></li>
+            <li><a href="#services">Awnings</a></li>
+            <li><a href="#services">Safety Signs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#why">About Us</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Get a Quote</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Signs &amp; More. All rights reserved.</span>
+        <span>Designed &amp; made locally.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Theme toggle ---
+    const root = document.documentElement;
+    const stored = localStorage.getItem('snm-theme');
+    if (stored) root.setAttribute('data-theme', stored);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const isDark =
+        root.getAttribute('data-theme') === 'dark' ||
+        (root.getAttribute('data-theme') !== 'light' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const next = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('snm-theme', next);
+    });
+
+    // --- Mobile menu ---
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // --- Quote form (demo) ---
+    document.getElementById('quoteForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('formSubmit');
+      btn.textContent = 'Request Sent ✓';
+      btn.style.background = '#2E7D32';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>
