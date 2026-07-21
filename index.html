@@ -303,29 +303,6 @@
     .svc h3 { font-size: 0.86rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
     .svc p  { font-size: 0.77rem; color: var(--text-mid); line-height: 1.58; }
 
-    /* ── STATS BAND ─────────────────────────────── */
-    .stats-band { background: var(--accent); padding: 48px 0; }
-    .stats-inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .stat-col {
-      text-align: center;
-      padding: 0 24px;
-      border-right: 1px solid rgba(255,255,255,0.18);
-    }
-    .stat-col:last-child { border-right: none; }
-    .stat-col:first-child { padding-left: 0; text-align: left; }
-    .stat-col:last-child  { padding-right: 0; text-align: right; }
-    .stat-n {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
-    .stat-d { font-size: 0.8rem; color: rgba(255,255,255,0.68); margin-top: 6px; font-weight: 500; }
-
     /* ── PROCESS ────────────────────────────────── */
     .process-row {
       display: grid;
@@ -517,10 +494,6 @@
     @media (max-width: 960px) {
       .hero-inner       { grid-template-columns: 1fr; gap: 40px; }
       .svc-row          { grid-template-columns: repeat(2, 1fr); }
-      .stats-inner      { grid-template-columns: repeat(2, 1fr); }
-      .stat-col         { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding: 16px 0; text-align: left; }
-      .stat-col:last-child { border-bottom: none; }
-      .stat-col:first-child { padding-left: 0; }
       .process-row      { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .process-row::before { display: none; }
       .proc             { padding: 0; }
@@ -541,7 +514,6 @@
       .nav-links        { display: none; }
       .hamburger        { display: flex; }
       .svc-row          { grid-template-columns: 1fr; }
-      .stats-inner      { grid-template-columns: 1fr 1fr; }
       .process-row      { grid-template-columns: 1fr; }
       .stat-tiles       { grid-template-columns: 1fr 1fr; }
       .tgrid            { grid-template-columns: 1fr; }
@@ -751,30 +723,6 @@
 
     </div>
   </section>
-
-  <!-- STATS BAND -->
-  <div class="stats-band" aria-label="Company statistics">
-    <div class="container">
-      <div class="stats-inner">
-        <div class="stat-col">
-          <div class="stat-n">20+</div>
-          <div class="stat-d">Years in business</div>
-        </div>
-        <div class="stat-col">
-          <div class="stat-n">5,000+</div>
-          <div class="stat-d">Signs installed</div>
-        </div>
-        <div class="stat-col">
-          <div class="stat-n">98%</div>
-          <div class="stat-d">Client satisfaction</div>
-        </div>
-        <div class="stat-col">
-          <div class="stat-n">3-day</div>
-          <div class="stat-d">Avg. turnaround</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- PROCESS -->
   <section class="section section-alt" id="process">
